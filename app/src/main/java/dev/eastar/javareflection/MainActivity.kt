@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSampleApp() {
-        SampleApp().printName(this)
+        val clz : SampleApp = Class.forName(SampleApp::class.java.name).newInstance() as SampleApp
+        clz.printName(this)
     }
 }
