@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import java.lang.reflect.Field
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,9 +39,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSampleApp() {
-        val outer = OuterApp::class.java.newInstance()
-        val innerConstructor = OuterApp.InnerApp::class.java.getConstructor(OuterApp::class.java)
-        val inner = innerConstructor.newInstance(outer)
-        inner.printName(this)//I'm dev.eastar.javareflection.OuterApp
+        val field1: Field = SampleApp::class.java.getField("name")
+        val field2: Array<out Field> = SampleApp::class.java.fields
+        val field3: Field = SampleApp::class.java.getDeclaredField("name")
+        val field4: Array<out Field> = SampleApp::class.java.declaredFields
     }
 }
