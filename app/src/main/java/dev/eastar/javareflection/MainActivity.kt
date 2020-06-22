@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun onSampleApp() {
         val app = SampleApp2::class.java.newInstance()
-        val field1: Field = SampleApp2::class.java.getField("name")
+        val field1: Field = SampleApp2::class.java.getDeclaredField("name")
+        field1.isAccessible = true
         val name = field1.get(app)!!
         Log.e("tag", name.toString())
     }

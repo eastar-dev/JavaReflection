@@ -5,7 +5,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class SampleApp2 {
-    public static final String name = "I'm " + SampleApp2.class.getName();
+    private static final String name = "I'm " + SampleApp2.class.getName();
 
     public void printName(Context context) {
         Toast.makeText(context, name, Toast.LENGTH_SHORT).show();
