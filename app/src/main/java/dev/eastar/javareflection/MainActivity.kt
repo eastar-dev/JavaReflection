@@ -1,6 +1,7 @@
 package dev.eastar.javareflection
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -37,7 +38,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSampleApp() {
-        val clz = SampleApp::class.java.newInstance()
-        clz.printName(this)
+        val outer = OuterApp::class.java.newInstance()
+        val innerConstructor = OuterApp.InnerApp::class.java.getConstructor(OuterApp::class.java)
+        val inner = innerConstructor.newInstance(outer)
+        inner.printName(this)//I'm dev.eastar.javareflection.OuterApp
     }
 }
