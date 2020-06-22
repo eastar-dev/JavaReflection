@@ -41,9 +41,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSampleApp() {
-        val sampleApp = SampleApp::class.java.newInstance()
-        val method1: Method = SampleApp::class.java.getMethod("printName", Context::class.java)
-        method1.invoke(sampleApp, this)
-        //I'm Sample dev.eastar.javareflection.SampleApp
+        //https://stackoverflow.com/questions/15202997/what-is-the-difference-between-canonical-name-simple-name-and-class-name-in-jav
+        SampleApp::class.java.name
+        SampleApp::class.java.simpleName
+        SampleApp::class.java.canonicalName
+
+
+        SampleApp::class.java.`package`
+        SampleApp::class.java.annotations
+        SampleApp::class.java.superclass
     }
 }
