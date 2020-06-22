@@ -39,9 +39,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSampleApp() {
-        val field1: Field = SampleApp::class.java.getField("name")
-        val field2: Array<out Field> = SampleApp::class.java.fields
-        val field3: Field = SampleApp::class.java.getDeclaredField("name")
-        val field4: Array<out Field> = SampleApp::class.java.declaredFields
+        val app = SampleApp2::class.java.newInstance()
+        val field1: Field = SampleApp2::class.java.getField("name")
+        val name = field1.get(app)!!
+        Log.e("tag", name.toString())
     }
 }
