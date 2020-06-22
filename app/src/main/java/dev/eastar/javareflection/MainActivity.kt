@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSampleApp() {
-        val clz : SampleApp = Class.forName(SampleApp::class.java.name).newInstance() as SampleApp
+        val clz : SampleApp = Class.forName("dev.eastar.javareflection.SampleApp").newInstance() as SampleApp
         clz.printName(this)
     }
 }
