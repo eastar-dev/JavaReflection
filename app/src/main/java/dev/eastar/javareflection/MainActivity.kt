@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import java.lang.reflect.Field
+import java.lang.reflect.Method
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,10 +40,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSampleApp() {
-        val app = SampleApp2::class.java.newInstance()
-        val field1: Field = SampleApp2::class.java.getDeclaredField("name")
-        field1.isAccessible = true
-        val name = field1.get(app)!!
-        Log.e("tag", name.toString())
+        val mothod1: Method = SampleApp::class.java.getMethod("printName")
+        val mothod2: Array<out Method> = SampleApp::class.java.methods
+        val mothod3: Method = SampleApp::class.java.getDeclaredMethod("printName")
+        val mothod4: Array<out Method> = SampleApp::class.java.declaredMethods
     }
 }
