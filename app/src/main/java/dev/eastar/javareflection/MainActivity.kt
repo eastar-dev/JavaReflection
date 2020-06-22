@@ -8,6 +8,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import dev.eastar.common.SampleCommon
 import java.lang.reflect.Field
 import java.lang.reflect.Method
 
@@ -41,9 +42,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSampleApp() {
-        val sampleApp = SampleApp::class.java.newInstance()
-        val method1: Method = SampleApp::class.java.getMethod("printName", Context::class.java)
-        method1.invoke(sampleApp, this)
+        SampleCommon().printName(this)
+        //I'm Sample dev.eastar.common.SampleCommon
         //I'm Sample dev.eastar.javareflection.SampleApp
     }
 }
