@@ -1,5 +1,6 @@
 package dev.eastar.javareflection
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -40,9 +41,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSampleApp() {
-        val mothod1: Method = SampleApp::class.java.getMethod("printName")
-        val mothod2: Array<out Method> = SampleApp::class.java.methods
-        val mothod3: Method = SampleApp::class.java.getDeclaredMethod("printName")
-        val mothod4: Array<out Method> = SampleApp::class.java.declaredMethods
+        val sampleApp = SampleApp::class.java.newInstance()
+        val method1: Method = SampleApp::class.java.getMethod("printName", Context::class.java)
+        method1.invoke(sampleApp, this)
+        //I'm Sample dev.eastar.javareflection.SampleApp
     }
 }
